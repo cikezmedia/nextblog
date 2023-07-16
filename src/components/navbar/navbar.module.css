@@ -1,0 +1,32 @@
+.container {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-inter);
+}
+.logo {
+  font-weight: bold;
+  font-size: 26px;
+  color: #fff;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logout {
+  padding: 5px;
+  border: none;
+  background-color: #53c28b;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    height: 100px;
+  }
+}

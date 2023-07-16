@@ -1,0 +1,40 @@
+.container {
+  height: 50px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-size: 14px;
+  gap: 20px;
+  justify-content: space-between;
+  font-family: var(--font-inter);
+  margin-bottom: 16px;
+}
+.company {
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+.social {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.icon:hover {
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+/* .imgContainer {
+  width: 15px;
+  height: 15px;
+  position: relative;
+} */
