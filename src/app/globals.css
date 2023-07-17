@@ -16,7 +16,7 @@ body {
   color: #bbb;
 }
 .theme {
-  transition: 1s all ease;
+  transition: 0.1s all ease;
 }
 
 a {
