@@ -12,7 +12,7 @@ const Blog = () => {
         <Line />
       </div>
 
-      <Link href='/testId' className={styles.item}>
+      <Link href='/blog/testId' className={styles.item}>
         <div className={styles.imgContainer}>
           <Image
             src='https://images.pexels.com/photos/17530630/pexels-photo-17530630/free-photo-of-sea-city-landscape-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'

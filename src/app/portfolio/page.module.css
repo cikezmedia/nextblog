@@ -24,11 +24,12 @@
 .item {
   border: 5px solid #bbb;
   border-radius: 5px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  height: 500px;
+  height: 400px;
   position: relative;
   background-size: cover !important;
+  color: #bbb;
 }
 .item:hover {
   border: 5px solid #53c28b;

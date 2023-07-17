@@ -1,3 +1,51 @@
 .container {
-  background-color: brown;
+  font-size: 1.6rem;
+  font-family: var(--font-inter);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+}
+.top {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.title {
+  font-size: 3.2rem;
+}
+.desc,
+.text {
+  font-family: var(--font-hind);
+}
+.author {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #53c28b;
+}
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.imgContainer {
+  position: relative;
+  height: 300px;
+  flex: 1;
+}
+.image {
+  border-radius: 5px;
+  object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
 }

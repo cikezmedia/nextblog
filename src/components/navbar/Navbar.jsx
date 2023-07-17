@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from './navbar.module.css';
+import Darkmode from '@/darkmode/Darkmode';
 
 const links = [
   //{ id: 1, title: 'Home', url: '/' },
@@ -18,6 +19,7 @@ const Navbar = () => {
         Folio D.
       </Link>
       <div className={styles.links}>
+        <Darkmode />
         {links.map((link) => (
           <Link key={link.id} href={link.url} className={styles.link}>
             {link.title}
