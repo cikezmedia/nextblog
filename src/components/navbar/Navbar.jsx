@@ -32,9 +32,19 @@ const Navbar = () => {
       </Link>
       <div className={styles.links}>
         {theme === 'dark' ? (
-          <BsSun size={20} cursor='pointer' onClick={() => setTheme('light')} />
+          <BsSun
+            size={20}
+            cursor='pointer'
+            className={styles.fade}
+            onClick={() => setTheme('light')}
+          />
         ) : (
-          <BsMoon size={20} cursor='pointer' onClick={() => setTheme('dark')} />
+          <BsMoon
+            size={20}
+            cursor='pointer'
+            className={styles.fade}
+            onClick={() => setTheme('dark')}
+          />
         )}
         {links.map((link) => (
           <Link key={link.id} href={link.url} className={styles.link}>

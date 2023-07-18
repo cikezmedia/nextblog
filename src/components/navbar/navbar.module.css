@@ -26,6 +26,10 @@
   border-radius: 3px;
 }
 
+.fade {
+  transition: 1s all ease;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     height: 100px;
