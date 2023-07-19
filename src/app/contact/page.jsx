@@ -3,6 +3,15 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Button from '@/button/Button';
 
+export const metadata = {
+  title: 'Folio Digitals | Contact Us.',
+  description: 'Your #1 digital folio management',
+  icons: {
+    icon: { url: '/favicon.ico', type: 'image/ico' },
+    shortcut: { url: '/favicon.ico', type: 'image/ico' },
+  },
+};
+
 const Contact = () => {
   return (
     <div className={styles.container}>

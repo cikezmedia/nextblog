@@ -1,0 +1,23 @@
+.container {
+  font-family: var(--font-inter);
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8rem;
+  margin-top: 4rem;
+}
+.title {
+  font-size: 3rem;
+}
+.desc {
+  font-family: var(--font-hind);
+  font-size: 1.8rem;
+}
+.imgCard {
+  height: 400px;
+  position: relative;
+}
+.img {
+  object-fit: cover;
+  border-radius: 5px;
+}

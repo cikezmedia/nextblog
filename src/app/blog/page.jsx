@@ -3,16 +3,20 @@ import Link from 'next/link';
 import React from 'react';
 import styles from './page.module.css';
 import Line from '@/line/Line';
+import { notFound } from 'next/navigation';
 
 async function getData() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    cache: 'no-store',
-  });
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
+  try {
+    const res = await fetch(`${process.env.WEBSITE}/api/posts`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) {
+      return notFound;
+    }
+    return res.json();
+  } catch (error) {
+    return notFound;
   }
-
-  return res.json();
 }
 const Blog = async () => {
   const data = await getData();
@@ -23,24 +27,30 @@ const Blog = async () => {
         <Line />
       </div>
 
-      {data?.map((item) => (
-        <Link href={`/blog/${item.id}`} className={styles.item} key={item.id}>
-          <div className={styles.imgContainer}>
-            <Image
-              src='https://images.pexels.com/photos/17530630/pexels-photo-17530630/free-photo-of-sea-city-landscape-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-              alt=''
-              width={400}
-              height={250}
-              className={styles.img}
-              priority={true}
-            />
-          </div>
-          <div className={styles.content}>
-            <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.desc}>{item.body}</p>
-          </div>
-        </Link>
-      ))}
+      {data?.length > 0
+        ? data?.map((item) => (
+            <Link
+              href={`/blog/${item._id}`}
+              className={styles.item}
+              key={item._id}
+            >
+              <div className={styles.imgContainer}>
+                <Image
+                  src={item.img}
+                  alt=''
+                  width={400}
+                  height={250}
+                  className={styles.img}
+                  priority={true}
+                />
+              </div>
+              <div className={styles.content}>
+                <h1 className={styles.title}>{item.title}</h1>
+                <p className={styles.desc}>{item.desc}</p>
+              </div>
+            </Link>
+          ))
+        : 'Unable to fetch blog posts'}
     </div>
   );
 };

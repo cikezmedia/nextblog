@@ -2,83 +2,46 @@ import React from 'react';
 import styles from './page.module.css';
 import Button from '@/button/Button';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { items } from './data';
+import { BiArrowBack } from 'react-icons/bi';
+import Link from 'next/link';
 
-const Category = ({ params }) => {
+const getData = async (cat) => {
+  const res = await fetch(`${process.env.WEBSITE}/api/portfolio/${cat}`, {
+    cache: 'no-store',
+  });
+  if (!res) {
+    return notFound();
+  }
+  return res.json();
+};
+
+const Category = async ({ params }) => {
+  const data = await getData(params.category);
   return (
     <div className={styles.container}>
-      <h1 className={styles.catTitle}>{params.category}</h1>
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Beautiful City</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Necessitatibus asperiores illo aspernatur enim iusto, doloribus quos
-            laudantium incidunt accusantium animi cumque dolorem expedita maxime
-            mollitia aut voluptas, quam sapiente vitae?
-            <br />
-            <br />
-            laudantium incidunt accusantium animi cumque dolorem expedita maxime
-            mollitia aut voluptas, quam sapiente vitae?
-          </p>
-          <Button url='#' text='Learn More' />
-        </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src='https://images.pexels.com/photos/17530630/pexels-photo-17530630/free-photo-of-sea-city-landscape-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-            alt=''
-            fill={true}
-            className={styles.img}
-          />
-        </div>
+      <div className={styles.heading}>
+        <Link href='/portfolio' className={styles.link}>
+          <BiArrowBack width={20} height={20} /> back
+        </Link>
+        <h1 className={styles.catTitle}>{params.category}</h1>
       </div>
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Creative Artwork</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Necessitatibus asperiores illo aspernatur enim iusto, doloribus quos
-            laudantium incidunt accusantium animi cumque dolorem expedita maxime
-            mollitia aut voluptas, quam sapiente vitae?
-            <br />
-            <br />
-            laudantium incidunt accusantium animi cumque dolorem expedita maxime
-            mollitia aut voluptas, quam sapiente vitae?
-          </p>
-          <Button url='#' text='Learn More' />
+      {data?.map((item) => (
+        <div className={styles.item} key={item._id}>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.desc}>{item.desc}</p>
+            <Button
+              url={`/portfolio/${params.category}/${item._id}`}
+              text='Learn More'
+            />
+          </div>
+          <div className={styles.imgContainer}>
+            <Image src={item.img} alt='' fill={true} className={styles.img} />
+          </div>
         </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src='https://images.pexels.com/photos/17465236/pexels-photo-17465236/free-photo-of-summer-pattern-texture-abstract.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-            alt=''
-            fill={true}
-            className={styles.img}
-          />
-        </div>
-      </div>
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Beautiful Collection</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Necessitatibus asperiores illo aspernatur enim iusto, doloribus quos
-            laudantium incidunt accusantium animi cumque dolorem expedita maxime
-            mollitia aut voluptas, quam sapiente vitae?
-            <br />
-            <br />
-            laudantium incidunt accusantium animi cumque dolorem expedita maxime
-            mollitia aut voluptas, quam sapiente vitae?
-          </p>
-          <Button url='#' text='Learn More' />
-        </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src='https://images.pexels.com/photos/15021300/pexels-photo-15021300/free-photo-of-post-letter-boxes-outdoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-            alt=''
-            fill={true}
-            className={styles.img}
-          />
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
