@@ -15,7 +15,6 @@ const getData = async ({ cat, id }) => {
 
 const Page = async ({ params }) => {
   const data = await getData(params);
-  //console.log(data);
 
   return (
     <div className={styles.container}>
