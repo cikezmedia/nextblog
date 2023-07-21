@@ -14,7 +14,7 @@ export async function POST(req) {
   try {
     const userExists = await User.find({ email }).count();
     if (userExists) {
-      return new NextResponse.send('User already exist', {
+      return new NextResponse('User already exist', {
         status: 201,
       });
     } else {
@@ -29,7 +29,7 @@ export async function POST(req) {
       });
     }
   } catch (err) {
-    return new NextResponse(err.message, {
+    return new NextResponse(err, {
       status: 500,
     });
   }
