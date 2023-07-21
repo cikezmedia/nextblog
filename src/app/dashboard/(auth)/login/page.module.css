@@ -63,6 +63,10 @@
   font-size: 1.6rem;
   cursor: pointer;
 }
+[data-theme='light'] .gmail > button {
+  background-color: black;
+  color: white;
+}
 .link {
   color: #53c28b;
 }

@@ -24,7 +24,6 @@ const Register = () => {
     try {
       const res = await axios.post('/api/auth/register', options);
       res.status === 201 && router.push('/dashboard/login');
-      console.log(res);
     } catch (error) {
       setErr(true);
     }
