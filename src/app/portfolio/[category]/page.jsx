@@ -17,6 +17,11 @@ const getData = async (cat) => {
   return res.json();
 };
 
+export const metadata = {
+  title: 'Folio Digitals | Our Portfolio',
+  description: 'Your #1 digital folio management',
+};
+
 const Category = async ({ params }) => {
   const data = await getData(params.category);
   return (

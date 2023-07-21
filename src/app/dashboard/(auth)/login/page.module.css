@@ -1,0 +1,67 @@
+.container {
+  font-family: var(--font-inter);
+  font-size: 1.8rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 20px;
+}
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'] {
+  padding: 15px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+.input:focus {
+  border: 1px solid #53c28b !important;
+  outline: none;
+}
+.error {
+  color: red;
+  font-size: 1.4rem;
+}
+.submitButton {
+  display: flex;
+  margin: 0 auto;
+}
+.button {
+  padding: 15px 50px;
+  background-color: #53c28b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  max-width: fit-content;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.gmail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.gmail > button {
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  gap: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.link {
+  color: #53c28b;
+}

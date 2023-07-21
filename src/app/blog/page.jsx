@@ -18,6 +18,12 @@ async function getData() {
     return notFound;
   }
 }
+
+export const metadata = {
+  title: 'Folio Digitals | Our Blog',
+  description: 'Your #1 digital folio management',
+};
+
 const Blog = async () => {
   const data = await getData();
   return (

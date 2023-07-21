@@ -3,6 +3,7 @@ import './globals.css';
 import { Inter, Hind_Madurai } from 'next/font/google';
 import Footer from '@/footer/Footer';
 import Providers from './Providers';
+import AuthProvider from '@/AuthProvider/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -26,11 +27,13 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={`${inter.variable} ${hind.variable}`}>
         <Providers>
-          <div className='container'>
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
+          <AuthProvider>
+            <div className='container'>
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </AuthProvider>
         </Providers>
       </body>
     </html>

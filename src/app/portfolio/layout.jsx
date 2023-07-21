@@ -2,6 +2,11 @@ import React from 'react';
 import styles from './page.module.css';
 import Line from '@/line/Line';
 
+export const metadata = {
+  title: 'Folio Digitals | Our Portfolio',
+  description: 'Your #1 digital folio management',
+};
+
 const Layout = ({ children }) => {
   return (
     <div>

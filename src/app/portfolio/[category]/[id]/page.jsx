@@ -13,6 +13,14 @@ const getData = async ({ cat, id }) => {
   return res.json();
 };
 
+export async function generateMetadata({ params }) {
+  const data = await getData(params);
+  return {
+    title: `Folio Digitals | ${data.title}`,
+    description: data.desc,
+  };
+}
+
 const Page = async ({ params }) => {
   const data = await getData(params);
 

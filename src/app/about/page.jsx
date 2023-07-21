@@ -3,6 +3,11 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Button from '@/button/Button';
 
+export const metadata = {
+  title: 'Folio Digitals | About Us',
+  description: 'Your #1 digital folio management',
+};
+
 const About = () => {
   return (
     <div className={styles.container}>
