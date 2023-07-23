@@ -30,6 +30,7 @@ const Contact = () => {
             width={400}
             height={400}
             className={styles.img}
+            priority
           />
         </div>
         <form action='' method='post' className={styles.form}>

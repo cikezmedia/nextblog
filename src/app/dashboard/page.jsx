@@ -87,6 +87,7 @@ const Dashboard = () => {
                           width={250}
                           height={120}
                           className={styles.img}
+                          priority
                         />
                       </div>
                       <div className={styles.content}>

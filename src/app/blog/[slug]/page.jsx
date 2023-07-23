@@ -51,6 +51,7 @@ const Blog = async ({ params }) => {
             alt=''
             fill={true}
             className={styles.image}
+            priority
           />
         </div>
       </div>

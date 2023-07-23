@@ -16,7 +16,7 @@ export default function Home() {
         <Button text='See Our Works' url='/portfolio' />
       </div>
       <div className={styles.secondItem}>
-        <Image src={Hero} alt='' className={styles.img} />
+        <Image src={Hero} alt='' className={styles.img} priority />
       </div>
     </div>
   );

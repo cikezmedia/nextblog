@@ -27,7 +27,13 @@ const Page = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgCard}>
-        <Image src={data.img} alt='' fill={true} className={styles.img} />
+        <Image
+          src={data.img}
+          alt=''
+          fill={true}
+          priority
+          className={styles.img}
+        />
       </div>
       <h1 className={styles.title}>{data.title}</h1>
       <p className={styles.desc}>{data.desc}</p>

@@ -43,7 +43,13 @@ const Category = async ({ params }) => {
             />
           </div>
           <div className={styles.imgContainer}>
-            <Image src={item.img} alt='' fill={true} className={styles.img} />
+            <Image
+              src={item.img}
+              alt=''
+              fill={true}
+              priority
+              className={styles.img}
+            />
           </div>
         </div>
       ))}

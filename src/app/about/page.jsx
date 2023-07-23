@@ -17,6 +17,7 @@ const About = () => {
           alt=''
           fill={true}
           className={styles.img}
+          priority
         />
         <div className={styles.imgText}>
           <h1 className={styles.imgTitle}>Digital Storytellers</h1>
