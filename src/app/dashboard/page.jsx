@@ -52,6 +52,7 @@ const Dashboard = () => {
     try {
       const res = await axios.post(`/api/posts`, options);
       mutate();
+      e.target.reset();
     } catch (error) {
       throw new Error('Unable to add post');
     }
