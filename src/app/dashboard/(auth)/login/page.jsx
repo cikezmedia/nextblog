@@ -4,7 +4,7 @@ import styles from './page.module.css';
 import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const [err, setErr] = useState('');

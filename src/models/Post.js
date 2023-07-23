@@ -6,6 +6,7 @@ const postSchema = new Schema(
   {
     title: { type: String, required: true },
     desc: { type: String, required: true },
+    slug: { type: String, required: true },
     name: { type: String, required: true },
     img: { type: String, required: true },
     content: { type: String, required: true },

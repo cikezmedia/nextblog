@@ -36,7 +36,7 @@ const Blog = async () => {
       {data?.length > 0
         ? data?.map((item) => (
             <Link
-              href={`/blog/${item._id}`}
+              href={`/blog/${item.slug}`}
               className={styles.item}
               key={item._id}
             >

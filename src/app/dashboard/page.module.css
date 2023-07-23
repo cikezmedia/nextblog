@@ -13,17 +13,18 @@
 .news {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 .card {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  position: relative;
 }
 .content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 .title {
   font-size: 2.4rem;
@@ -39,7 +40,22 @@
   object-fit: cover;
   border-radius: 5px;
 }
-
+.del {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -59,6 +75,7 @@
 }
 .form textarea {
   height: 100px;
+  font-family: var(--font-inter);
 }
 .button {
   background-color: #53c28b;
@@ -70,7 +87,16 @@
   width: fit-content;
   cursor: pointer;
 }
-
+.hr {
+  width: 100%;
+  border: 1px solid #53c28b;
+  margin-bottom: 10px;
+}
+.warn {
+  color: red;
+  font-weight: 600;
+  font-size: 2.2rem;
+}
 @media screen and (min-width: 768px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
@@ -82,5 +108,9 @@
   .card {
     display: flex;
     flex-direction: row;
+    gap: 30px;
+  }
+  .hr {
+    display: none;
   }
 }
