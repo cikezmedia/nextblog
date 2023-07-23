@@ -57,6 +57,17 @@ const Dashboard = () => {
     }
   };
 
+  const handleDelete = async (slug) => {
+    try {
+      await fetch(`/api/posts/${slug}`, {
+        method: 'DELETE',
+      });
+      mutate();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (session.status === 'authenticated') {
     return (
       <>
@@ -67,11 +78,7 @@ const Dashboard = () => {
               {isLoading
                 ? 'loading posts...'
                 : data?.map((post) => (
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className={styles.card}
-                      key={post._id}
-                    >
+                    <div className={styles.card} key={post._id}>
                       <div className={styles.imgContainer}>
                         <Image
                           src={post.img}
@@ -82,11 +89,20 @@ const Dashboard = () => {
                         />
                       </div>
                       <div className={styles.content}>
-                        <h1 className={styles.title}>{post.title}</h1>
-                        <p className={styles.desc}>{post.desc}</p>
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className={styles.title}
+                        >
+                          {post.title}
+                        </Link>
                       </div>
-                      <div className={styles.del}>x</div>
-                    </Link>
+                      <span
+                        className={styles.del}
+                        onClick={() => handleDelete(post.slug)}
+                      >
+                        x
+                      </span>
+                    </div>
                   ))}
             </div>
             <form onSubmit={handleSubmit} className={styles.form}>

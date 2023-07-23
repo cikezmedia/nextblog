@@ -12,3 +12,14 @@ export const GET = async (request, { params }) => {
     return new NextResponse('Database connection error', { status: 500 });
   }
 };
+
+export const DELETE = async (request, { params }) => {
+  const { slug } = params;
+  try {
+    await connect();
+    await Post.deleteOne({ slug: slug });
+    return new NextResponse('Post deleted', { status: 201 });
+  } catch (error) {
+    return new NextResponse('Database connection error', { status: 500 });
+  }
+};
